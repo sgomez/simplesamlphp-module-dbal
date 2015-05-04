@@ -1,0 +1,28 @@
+{
+    "name": "sgomez/simplesamlphp-module-dbal",
+    "description": "A SimpleSAMLphp module adding support for Doctrine/DBAL.",
+    "type": "simplesamlphp-module",
+    "keywords": [ "doctrine", "dbal" ],
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Sergio Gómez",
+            "email": "sergio@uco.es"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "SimpleSAML\\Modules\\DBAL\\": "lib"
+        }
+    },
+    "bin": ["bin/dbalschema"],
+    "require": {
+        "simplesamlphp/composer-module-installer": "~1.0",
+        "doctrine/dbal": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

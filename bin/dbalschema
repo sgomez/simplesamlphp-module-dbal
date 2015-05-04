@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+$baseDir = __DIR__ . '/../../..';
+/* Add library autoloader. */
+require_once($baseDir . '/lib/_autoload.php');
+
+/* Initialize the configuration. */
+$configdir = $baseDir . '/config';
+SimpleSAML_Configuration::setConfigDir($configdir);
+
+$summary = array();
+$dbinfo = array(
+    'summary' => &$summary,
+);
+
+SimpleSAML_Module::callHooks('dbal', $dbinfo);
+
+foreach ($summary AS $s) {
+    echo $s . "\n";
+}
