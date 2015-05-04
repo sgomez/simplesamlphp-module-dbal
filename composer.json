@@ -17,6 +17,7 @@
     },
     "bin": ["bin/dbalschema"],
     "require": {
+        "php": "~5.4",
         "simplesamlphp/composer-module-installer": "~1.0",
         "doctrine/dbal": "~2.0"
     },
