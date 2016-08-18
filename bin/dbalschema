@@ -14,7 +14,7 @@ $dbinfo = array(
     'summary' => &$summary,
 );
 
-SimpleSAML_Module::callHooks('dbal', $dbinfo);
+SimpleSAML\Module::callHooks('dbal', $dbinfo);
 
 foreach ($summary AS $s) {
     echo $s . "\n";

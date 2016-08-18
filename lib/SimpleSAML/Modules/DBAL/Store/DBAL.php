@@ -224,7 +224,7 @@ class DBAL extends \SimpleSAML_Store
      */
     public function cleanKVStore()
     {
-        \SimpleSAML_Logger::debug('store.dbal: Cleaning key-value store.');
+        \SimpleSAML\Logger::debug('store.dbal: Cleaning key-value store.');
 
         try {
             $qb = $this->createQueryBuilder();
