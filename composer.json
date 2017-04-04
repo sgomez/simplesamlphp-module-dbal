@@ -17,9 +17,12 @@
     },
     "bin": ["bin/dbalschema"],
     "require": {
-        "php": ">=5.4",
-        "simplesamlphp/composer-module-installer": "~1.0",
-        "doctrine/dbal": "~2.0"
+        "php": ">=5.5.9",
+        "simplesamlphp/composer-module-installer": "^1.0",
+        "doctrine/dbal": "^2.5"
+    },
+    "require-dev": {
+        "simplesamlphp/simplesamlphp": "^1.14"
     },
     "extra": {
         "branch-alias": {

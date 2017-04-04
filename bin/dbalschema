@@ -3,18 +3,18 @@
 
 $baseDir = __DIR__ . '/../../..';
 /* Add library autoloader. */
-require_once($baseDir . '/lib/_autoload.php');
+require_once($baseDir . '/vendor/autoload.php');
 
 /* Initialize the configuration. */
 $configdir = $baseDir . '/config';
-SimpleSAML_Configuration::setConfigDir($configdir);
+\SimpleSAML_Configuration::setConfigDir($configdir);
 
 $summary = array();
 $dbinfo = array(
     'summary' => &$summary,
 );
 
-SimpleSAML\Module::callHooks('dbal', $dbinfo);
+\SimpleSAML_Module::callHooks('dbal', $dbinfo);
 
 foreach ($summary AS $s) {
     echo $s . "\n";
