@@ -2,13 +2,13 @@
 
 function dbal_hook_dbal(&$dbinfo)
 {
-    $store = SimpleSAML_Store::getInstance();
+    $store = \SimpleSAML\Store::getInstance();
 
-    if (! $store instanceof \SimpleSAML\Modules\DBAL\Store\DBAL ) {
+    if (!$store instanceof \SimpleSAML\Modules\DBAL\Store\DBAL) {
         throw new \SimpleSAML_Error_Exception('OAuth2 module: Only DBAL Store is supported');
     }
 
-    $prefix = $store->getPrefix() . '_kvstore';
+    $prefix = $store->getPrefix().'_kvstore';
 
     $schema = new \Doctrine\DBAL\Schema\Schema();
     $kvstore = $schema->createTable($prefix);

@@ -5,8 +5,10 @@ installable through [Composer](https://getcomposer.org/). Installation can be as
 easy as executing:
 
 ```
-composer require sgomez/simplesamlphp-module-dbal ~1.0
+composer require sgomez/simplesamlphp-module-dbal ~1.0 # for SSP >= 1.14
+composer require sgomez/simplesamlphp-module-dbal ~2.0 # for SSP >= 2.0|master
 ```
+
 
 ## Configuring
 

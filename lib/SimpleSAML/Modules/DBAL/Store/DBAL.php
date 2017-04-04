@@ -6,8 +6,10 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Exception\TableNotFoundException;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\DBAL\Types\Type;
+use SimpleSAML\Logger;
+use SimpleSAML\Store;
 
-class DBAL extends \SimpleSAML_Store
+class DBAL extends Store
 {
     /**
      * The prefix we should use for our tables.
@@ -24,7 +26,7 @@ class DBAL extends \SimpleSAML_Store
     private $kvstorePrefix;
 
     /**
-     * Database connection
+     * Database connection.
      *
      * @var \Doctrine\DBAL\Connection
      */
@@ -55,7 +57,7 @@ class DBAL extends \SimpleSAML_Store
      * Create or update a schema.
      *
      * @param Schema $schema
-     * @param string $tablePrefix Only tables with this prefix will be updated.
+     * @param string $tablePrefix only tables with this prefix will be updated
      *
      * @throws \Doctrine\DBAL\DBALException
      */
@@ -84,9 +86,10 @@ class DBAL extends \SimpleSAML_Store
     /**
      * Retrieve a value from the datastore.
      *
-     * @param string $type The datatype.
-     * @param string $key The key.
-     * @return mixed|NULL The value.
+     * @param string $type the datatype
+     * @param string $key  the key
+     *
+     * @return mixed|null the value
      *
      * @throws \SimpleSAML_Error_Error
      */
@@ -136,10 +139,10 @@ class DBAL extends \SimpleSAML_Store
     /**
      * Save a value to the datastore.
      *
-     * @param string $type The datatype.
-     * @param string $key The key.
-     * @param mixed $value The value.
-     * @param int|NULL $expire The expiration time (unix timestamp), or NULL if it never expires.
+     * @param string   $type   the datatype
+     * @param string   $key    the key
+     * @param mixed    $value  the value
+     * @param int|null $expire the expiration time (unix timestamp), or NULL if it never expires
      *
      * @throws \SimpleSAML_Error_Error
      */
@@ -194,8 +197,8 @@ class DBAL extends \SimpleSAML_Store
     /**
      * Delete a value from the datastore.
      *
-     * @param string $type The datatype.
-     * @param string $key The key.
+     * @param string $type the datatype
+     * @param string $key  the key
      *
      * @throws \SimpleSAML_Error_Error
      */
@@ -224,7 +227,7 @@ class DBAL extends \SimpleSAML_Store
      */
     public function cleanKVStore()
     {
-        \SimpleSAML\Logger::debug('store.dbal: Cleaning key-value store.');
+        Logger::debug('store.dbal: Cleaning key-value store.');
 
         try {
             $qb = $this->createQueryBuilder();
@@ -249,7 +252,7 @@ class DBAL extends \SimpleSAML_Store
     }
 
     /**
-     * Returns the database connection
+     * Returns the database connection.
      *
      * @return \Doctrine\DBAL\Connection
      */

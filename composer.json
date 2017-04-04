@@ -17,13 +17,17 @@
     },
     "bin": ["bin/dbalschema"],
     "require": {
-        "php": ">=5.4",
-        "simplesamlphp/composer-module-installer": "~1.0",
-        "doctrine/dbal": "~2.0"
+        "php": ">=5.5.9",
+        "simplesamlphp/composer-module-installer": "^1.0",
+        "doctrine/dbal": "^2.5"
+    },
+    "require-dev": {
+        "simplesamlphp/simplesamlphp": "dev-master",
+        "simplesamlphp/saml2": "dev-master#f079abe36ab4101dfda654a087f8003a9673b952 as 2.4"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }
