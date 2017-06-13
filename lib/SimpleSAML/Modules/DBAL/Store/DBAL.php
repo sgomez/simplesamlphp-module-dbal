@@ -43,13 +43,22 @@ class DBAL extends Store
         $this->prefix = $config->getString('store.sql.prefix', 'simpleSAMLphp');
         $this->kvstorePrefix = $this->prefix.'_kvstore';
 
-        $connectionParams = array(
-            'driver' => $dbalconfig->getString('store.dbal.driver'),
-            'user' => $dbalconfig->getString('store.dbal.user', null),
-            'password' => $dbalconfig->getString('store.dbal.password', null),
-            'host' => $dbalconfig->getString('store.dbal.host', 'localhost'),
-            'dbname' => $dbalconfig->getString('store.dbal.dbname'),
-        );
+        $url = $dbalconfig->getString('store.dbal.url', null);
+
+        if ($url) {
+            $connectionParams = array(
+                'url' => $url,
+            );
+        } else {
+            $connectionParams = array(
+                'driver' => $dbalconfig->getString('store.dbal.driver'),
+                'user' => $dbalconfig->getString('store.dbal.user', null),
+                'password' => $dbalconfig->getString('store.dbal.password', null),
+                'host' => $dbalconfig->getString('store.dbal.host', 'localhost'),
+                'dbname' => $dbalconfig->getString('store.dbal.dbname'),
+            );
+        }
+
         $this->conn = DriverManager::getConnection($connectionParams);
     }
 
