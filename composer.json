@@ -22,7 +22,7 @@
         "doctrine/dbal": "^2.5"
     },
     "require-dev": {
-        "simplesamlphp/simplesamlphp": "^1.14"
+        "simplesamlphp/simplesamlphp": "^1.15"
     },
     "extra": {
         "branch-alias": {

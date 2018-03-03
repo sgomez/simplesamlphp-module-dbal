@@ -6,8 +6,9 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Exception\TableNotFoundException;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\DBAL\Types\Type;
+use SimpleSAML\Store;
 
-class DBAL extends \SimpleSAML_Store
+class DBAL extends Store
 {
     /**
      * The prefix we should use for our tables.
