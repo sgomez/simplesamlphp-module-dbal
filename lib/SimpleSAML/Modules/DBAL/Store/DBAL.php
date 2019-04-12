@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\DBAL\Types\Type;
 use SimpleSAML\Store;
 
-class DBAL extends Store
+class DBAL extends \SimpleSAML_Store
 {
     /**
      * The prefix we should use for our tables.
