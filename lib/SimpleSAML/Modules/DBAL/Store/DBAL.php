@@ -36,8 +36,8 @@ class DBAL extends Store
      */
     protected function __construct()
     {
-        $config = \SimpleSAML_Configuration::getInstance();
-        $dbalconfig = \SimpleSAML_Configuration::getConfig('module_dbal.php');
+        $config = \SimpleSAML\Configuration::getInstance();
+        $dbalconfig = \SimpleSAML\Configuration::getConfig('module_dbal.php');
 
         $this->prefix = $config->getString('store.sql.prefix', 'simpleSAMLphp');
         $this->kvstorePrefix = $this->prefix.'_kvstore';
@@ -98,7 +98,7 @@ class DBAL extends Store
      * @param string $key The key.
      * @return mixed|NULL The value.
      *
-     * @throws \SimpleSAML_Error_Error
+     * @throws \SimpleSAML\Error\Error
      */
     public function get($type, $key)
     {
@@ -120,7 +120,7 @@ class DBAL extends Store
                 ->setParameter('now', new \DateTime(), Type::DATETIME)
                 ->execute();
         } catch (TableNotFoundException $e) {
-            throw new \SimpleSAML_Error_Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
+            throw new \SimpleSAML\Error\Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
         }
 
         $result = $query->fetchAll(\PDO::FETCH_ASSOC);
@@ -151,7 +151,7 @@ class DBAL extends Store
      * @param mixed $value The value.
      * @param int|NULL $expire The expiration time (unix timestamp), or NULL if it never expires.
      *
-     * @throws \SimpleSAML_Error_Error
+     * @throws \SimpleSAML\Error\Error
      */
     public function set($type, $key, $value, $expire = null)
     {
@@ -182,7 +182,7 @@ class DBAL extends Store
             ;
             $rows = $query->execute();
         } catch (TableNotFoundException $e) {
-            throw new \SimpleSAML_Error_Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
+            throw new \SimpleSAML\Error\Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
         }
 
         if (0 === $rows) {
@@ -207,7 +207,7 @@ class DBAL extends Store
      * @param string $type The datatype.
      * @param string $key The key.
      *
-     * @throws \SimpleSAML_Error_Error
+     * @throws \SimpleSAML\Error\Error
      */
     public function delete($type, $key)
     {
@@ -225,7 +225,7 @@ class DBAL extends Store
                 ->execute()
             ;
         } catch (TableNotFoundException $e) {
-            throw new \SimpleSAML_Error_Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
+            throw new \SimpleSAML\Error\Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
         }
     }
 
@@ -234,7 +234,7 @@ class DBAL extends Store
      */
     public function cleanKVStore()
     {
-        \SimpleSAML_Logger::debug('store.dbal: Cleaning key-value store.');
+        \SimpleSAML\Logger::debug('store.dbal: Cleaning key-value store.');
 
         try {
             $qb = $this->createQueryBuilder();
@@ -244,7 +244,7 @@ class DBAL extends Store
                 ->execute()
             ;
         } catch (TableNotFoundException $e) {
-            throw new \SimpleSAML_Error_Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
+            throw new \SimpleSAML\Error\Error('KVStore table on the datastore is missing. Did you create the schema? See README.md from dbal module for more information.');
         }
     }
 

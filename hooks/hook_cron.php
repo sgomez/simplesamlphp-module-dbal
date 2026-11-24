@@ -2,10 +2,10 @@
 
 function dbal_hook_cron(&$croninfo)
 {
-    $store = SimpleSAML_Store::getInstance();
+    $store = \SimpleSAML\Store::getInstance();
 
     if (! $store instanceof \SimpleSAML\Modules\DBAL\Store\DBAL ) {
-        throw new \SimpleSAML_Error_Exception('OAuth2 module: Only DBAL Store is supported');
+        throw new \SimpleSAML\Error\Exception('OAuth2 module: Only DBAL Store is supported');
     }
 
     $store->cleanKVStore();
